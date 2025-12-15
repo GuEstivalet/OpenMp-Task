@@ -8,12 +8,12 @@ void saxpy(int n, float a, const float *x, float *y);
 
 double get_time();
 
-// ./saxpy_seq N 
+// ./saxpy_v1 N 
 
 int main(int argc, char *argv[]) {
     if (argc != 2) {
         fprintf(stderr,
-            "./saxpy_seq N\n");
+            "Formato de entrada: ./saxpy_seq N\n");
         return EXIT_FAILURE;
     }
 
