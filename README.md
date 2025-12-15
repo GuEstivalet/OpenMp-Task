@@ -37,9 +37,7 @@ Verifica se o GCC está instalado e se suporta OpenMP 5.X. Caso negativo, realiz
 ./script_dependencies.sh
 ```
 
-Para execução do plot.py:
-
-python3 -m venv venv
-
-source venv/bin/activate
-
+Instalar as bibliotecas de plotoagem de gráficos:
+```
+pip install pandas matplotlib seaborn
+```
