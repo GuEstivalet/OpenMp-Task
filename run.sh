@@ -15,12 +15,13 @@ CSV_V1="saxpy_v1.csv"
 CSV_V2="saxpy_v2.csv"
 CSV_V3="saxpy_v3.csv"
 
+
 # ===============================
 # Cabeçalhos dos CSVs
 # ===============================
-echo "N,execucao,tempo" > $CSV_V1
-echo "N,execucao,tempo" > $CSV_V2
-echo "N,T,execucao,tempo" > $CSV_V3
+echo "N,execucao,tempo(ms)" > $CSV_V1
+echo "N,execucao,tempo(ms)" > $CSV_V2
+echo "N,T,execucao,tempo(ms)" > $CSV_V3
 
 # ===============================
 # Execuções

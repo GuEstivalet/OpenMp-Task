@@ -63,6 +63,7 @@ EOF
 if gcc -fopenmp test_openmp.c -o test_openmp; then
   echo "OpenMP está funcionando corretamente. Teste bem sucedido."
   rm -f test_openmp test_openmp.c
+  
 else
   echo "Erro: OpenMP não está funcional. Falhou no teste."
   exit 1
