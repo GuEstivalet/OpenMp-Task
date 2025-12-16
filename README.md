@@ -36,3 +36,8 @@ Verifica se o GCC está instalado e se suporta OpenMP 5.X. Caso negativo, realiz
 ```
 ./script_dependencies.sh
 ```
+
+Instalar as bibliotecas de plotoagem de gráficos:
+```
+pip install pandas matplotlib seaborn
+```
