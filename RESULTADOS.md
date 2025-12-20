@@ -1,5 +1,9 @@
 Análise de Resultados: Laço irregular e políticas schedule (Tarefa A)
 
+
+<img width="3000" height="1800" alt="image" src="https://github.com/user-attachments/assets/f89637b3-9c4d-4c12-af4a-6d8fc6f4f8f3" />
+
+
 Os experimentos realizados para a Tarefa A (N=1M, K=28, Threads=16) revelam comportamentos distintos entre as políticas de escalonamento do OpenMP, evidenciando como a distribuição da carga de trabalho e o tamanho do chunk influenciam o tempo total de execução.
 
 1. Superioridade da Política Estática (Static)
@@ -41,6 +45,9 @@ Overhead de 16 Threads: O fato de todos os tempos estarem na faixa dos 20 segund
 Análise de Resultados: Operação SAXPY (Tarefa C)
 
 
+<img width="1000" height="600" alt="image" src="https://github.com/user-attachments/assets/2e4e3990-2578-4e8e-a8fd-ce73bedba3bb" />
+
+
 A análise a seguir baseia-se nos dados coletados para as três versões do algoritmo (v1 Sequencial, v2 SIMD e v3 OMP+SIMD), focando na eficiência da paralelização e nos limites do hardware utilizado.
 
 
@@ -53,6 +60,9 @@ A diretiva #pragma omp simd permitiu que o compilador utilizasse registradores v
 Isso reduz o número total de instruções executadas pela CPU para cobrir o mesmo valor de N, resultando em um tempo de execução consistentemente menor para a v2 em relação à v1.
 
 
+<img width="1000" height="600" alt="image" src="https://github.com/user-attachments/assets/82d296b0-7c32-4e07-88a8-db7df47d8332" />
+
+
 2. Escalabilidade e Eficiência Paralela (v3)
 A versão v3 (OMP+SIMD) demonstrou comportamentos distintos dependendo do número de threads (T):
 
@@ -60,7 +70,12 @@ A versão v3 (OMP+SIMD) demonstrou comportamentos distintos dependendo do númer
 
 4 a 8: O ganho de desempenho continuou, porém de forma sublinear. Isso ocorre devido ao Hyper-Threading, onde as 8 threads lógicas compartilham os recursos dos 4 núcleos físicos. O ganho aqui é menor pois as threads começam a competir por unidades de execução e largura de banda de memória.
 
-16 (O Ponto de Inflexão): Para 16 threads, os gráficos de escalabilidade e boxplot mostram uma perda clara de desempenho (aumento no tempo de execução).
+
+<img width="1000" height="600" alt="image" src="https://github.com/user-attachments/assets/9dba1c44-88b0-4931-b418-fa8cd5b0d837" />
+
+
+
+16 (O Ponto de Inflexão): Para 16 threads, os gráficos de escalabilidade e boxplot mostram uma perda clara de desempenho (aumento no tempo de execução). Na medida que Speedup diminui, significa que diminui a diferença de performance entre as execuções - que deveria tender a crescer se não fosse essa característica do nosso hardware.
 
 3. Impacto do Overhead e Oversubscription
 
@@ -73,6 +88,15 @@ O overhead gerado pelo gerenciamento de threads excedentes (salvamento e restaur
 Além disso, a operação SAXPY é inerentemente memory-bound (limitada pela memória). Com 16 threads, a disputa pelo barramento de memória torna-se o gargalo principal, impedindo qualquer ganho de processamento extra.
 
 4. Variabilidade e Warm-up
+
+
+<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/58379f46-29bf-42b1-a6a4-6fb7eb098c4b" />
+
+
+<img width="800" height="600" alt="image" src="https://github.com/user-attachments/assets/e92ad346-1365-4834-a81a-bd2649837486" />
+
+
+<img width="1200" height="500" alt="image" src="https://github.com/user-attachments/assets/6c032fa4-3238-4ed0-8f45-060613c3ce3e" />
 
 
 Os gráficos de boxplot individualizados revelam uma variabilidade maior nas primeiras execuções de cada bloco.
