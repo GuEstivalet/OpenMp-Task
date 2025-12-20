@@ -3,9 +3,9 @@
 # ===============================
 # 1. Configurações
 # ===============================
-N_FIXED=1000000
+N_FIXED=500000
 K_FIXED=28
-T_FIXED=16
+T_FIXED=4
 
 # Chunks para Dynamic e Guided
 CHUNKS_LIST=(1 4 16 64)
